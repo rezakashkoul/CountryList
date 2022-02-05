@@ -13,7 +13,6 @@ class MainController: UIViewController, SearchControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectCountriesButton: UIButton!
-    
     @IBAction func selectCountriesButtonAction(_ sender: Any) {
         showModal()
     }
@@ -22,11 +21,13 @@ class MainController: UIViewController, SearchControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         setNoDataInfoIfAbsenceNotExists()
         tableView.reloadData()
         print(countryList)
@@ -38,14 +39,14 @@ class MainController: UIViewController, SearchControllerDelegate {
         noDataLabel.text = "No Records Found"
         noDataLabel.textColor = UIColor.black
         noDataLabel.textAlignment = .center
-        self.tableView.separatorStyle = .none
+        tableView.separatorStyle = .none
         if countryList.isEmpty {
-            self.tableView.backgroundView = noDataLabel
-        } else if !countryList.isEmpty {
-            self.tableView.backgroundView = nil
+            tableView.backgroundView = noDataLabel
+        } else {
+            tableView.backgroundView = nil
         }
     }
-
+    
     func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
