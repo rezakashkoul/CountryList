@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 import RxSwift
 import RxCocoa
 
@@ -16,7 +15,6 @@ class MainController: UIViewController, SearchControllerDelegate {
     @IBOutlet weak var selectCountriesButton: UIButton!
     
     @IBAction func selectCountriesButtonAction(_ sender: Any) {
-        //        networkRequest()
         showModal()
     }
     
@@ -25,19 +23,32 @@ class MainController: UIViewController, SearchControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        //        networkRequest()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setNoDataInfoIfAbsenceNotExists()
         tableView.reloadData()
         print(countryList)
     }
     
+    func setNoDataInfoIfAbsenceNotExists() {
+        let noDataLabel : UILabel = UILabel()
+        noDataLabel.frame = CGRect(x: 0, y: 0 , width: (self.tableView.bounds.width), height: (self.tableView.bounds.height))
+        noDataLabel.text = "No Records Found"
+        noDataLabel.textColor = UIColor.black
+        noDataLabel.textAlignment = .center
+        self.tableView.separatorStyle = .none
+        if countryList.isEmpty {
+            self.tableView.backgroundView = noDataLabel
+        } else if !countryList.isEmpty {
+            self.tableView.backgroundView = nil
+        }
+    }
+
     func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
-        //        tableView.backgroundView =
         title = "Selected Countries"
         navigationController?.navigationBar.prefersLargeTitles = true
         selectCountriesButton.layer.cornerRadius = 20
@@ -51,8 +62,13 @@ class MainController: UIViewController, SearchControllerDelegate {
         vc.delegate = self
     }
     
-    func choosedCountry(country: [Country]) {
-        countryList += country
+    func choosedCountry(countries: [Country]) {
+        viewWillAppear(true)
+        for country in countries {
+            if !countryList.contains(country) {
+                countryList += countries
+            }
+        }
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -62,7 +78,7 @@ class MainController: UIViewController, SearchControllerDelegate {
 extension MainController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         cell.countryNameLabel.text = countryList[indexPath.row].name.official
         return cell
     }

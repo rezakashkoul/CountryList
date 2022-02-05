@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol SearchControllerDelegate: AnyObject {
-    func choosedCountry(country: [Country])
+    func choosedCountry(countries: [Country])
 }
 
 class SearchController: UIViewController, UITableViewDelegate {
@@ -21,7 +21,7 @@ class SearchController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var searchField: UISearchBar!
     
     @IBAction func doneButtonAction(_ sender: Any) {
-        //        delegate?.choosedCountry(country: selectedCountries)
+        delegate?.choosedCountry(countries: selectedCountries)
         dismiss(animated: true, completion: nil)
     }
     
@@ -29,6 +29,8 @@ class SearchController: UIViewController, UITableViewDelegate {
     private let disposeBag = DisposeBag()
     var rows = PublishSubject<[Country]>()
     weak var delegate: SearchControllerDelegate?
+    var selectedCountries = [Country]()
+    let object = MainController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +45,6 @@ class SearchController: UIViewController, UITableViewDelegate {
         if #available(iOS 13.0, *) {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissModalVC))
         } else {
-            // Fallback on earlier versions
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("X", comment: "Close"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(dismissModalVC))
         }
         doneButton.layer.cornerRadius = 20
@@ -82,6 +83,7 @@ class SearchController: UIViewController, UITableViewDelegate {
             tableView.rx.modelSelected(Country.self),
             tableView.rx.itemSelected ).subscribe(onNext: { (selectedCountry, indexPath) in
                 print("2 selected Country is \(selectedCountry) and indexPath is \(indexPath.row)")
+                self.selectedCountries.append(selectedCountry)
             }).disposed(by: disposeBag)
     }
     
