@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		486BE5F99B5F5F62BA2DAFD8 /* Pods_CountryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B908BE0BC0E66ED510178E16 /* Pods_CountryList.framework */; };
 		F7626A7027AEAACA00F445F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7626A6F27AEAACA00F445F6 /* AppDelegate.swift */; };
 		F7626A7227AEAACA00F445F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7626A7127AEAACA00F445F6 /* SceneDelegate.swift */; };
 		F7626A7427AEAACA00F445F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7626A7327AEAACA00F445F6 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C6A1F8FC02C4F62DA083F87 /* Pods-CountryList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryList.release.xcconfig"; path = "Target Support Files/Pods-CountryList/Pods-CountryList.release.xcconfig"; sourceTree = "<group>"; };
+		B908BE0BC0E66ED510178E16 /* Pods_CountryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CountryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE7FAE0DC57B61E40D4FDE96 /* Pods-CountryList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryList.debug.xcconfig"; path = "Target Support Files/Pods-CountryList/Pods-CountryList.debug.xcconfig"; sourceTree = "<group>"; };
 		F7626A6C27AEAACA00F445F6 /* CountryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7626A6F27AEAACA00F445F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7626A7127AEAACA00F445F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				486BE5F99B5F5F62BA2DAFD8 /* Pods_CountryList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EC34E6D39C7018A0662D420 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B908BE0BC0E66ED510178E16 /* Pods_CountryList.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E196867E6976C091B9A5C11 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE7FAE0DC57B61E40D4FDE96 /* Pods-CountryList.debug.xcconfig */,
+				8C6A1F8FC02C4F62DA083F87 /* Pods-CountryList.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F7626A6327AEAACA00F445F6 = {
 			isa = PBXGroup;
 			children = (
 				F7626A6E27AEAACA00F445F6 /* CountryList */,
 				F7626A6D27AEAACA00F445F6 /* Products */,
+				3E196867E6976C091B9A5C11 /* Pods */,
+				0EC34E6D39C7018A0662D420 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7626A8027AEAACB00F445F6 /* Build configuration list for PBXNativeTarget "CountryList" */;
 			buildPhases = (
+				E1854BD020A71650F6AD0ED0 /* [CP] Check Pods Manifest.lock */,
 				F7626A6827AEAACA00F445F6 /* Sources */,
 				F7626A6927AEAACA00F445F6 /* Frameworks */,
 				F7626A6A27AEAACA00F445F6 /* Resources */,
+				90969360430333093460E9ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		90969360430333093460E9ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CountryList/Pods-CountryList-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CountryList/Pods-CountryList-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CountryList/Pods-CountryList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1854BD020A71650F6AD0ED0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CountryList-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F7626A6827AEAACA00F445F6 /* Sources */ = {
@@ -284,6 +353,7 @@
 		};
 		F7626A8127AEAACB00F445F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE7FAE0DC57B61E40D4FDE96 /* Pods-CountryList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -295,8 +365,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,12 +378,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		F7626A8227AEAACB00F445F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C6A1F8FC02C4F62DA083F87 /* Pods-CountryList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -323,8 +396,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +409,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
