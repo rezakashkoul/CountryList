@@ -25,7 +25,7 @@ class SearchViewModel: NSObject {
                     items = countries.sorted { $0.self < $1.self }
                     self.tableRowsItem.onNext(items)
                 } catch {
-                    print("***** error in parse data2")
+                    print("***** error in parse data")
                 }
             }, onError: {(error) in
                 print("***** error in OnError",error)

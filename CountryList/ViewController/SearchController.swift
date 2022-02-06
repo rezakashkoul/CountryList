@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RxAlamofire
 import RxSwift
 import RxCocoa
 
@@ -48,6 +47,7 @@ class SearchController: UIViewController, UITableViewDelegate {
         }
         doneButton.layer.cornerRadius = 20
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
+        tableView.allowsMultipleSelection = true
     }
     
     func bindViewModel(){
@@ -58,10 +58,20 @@ class SearchController: UIViewController, UITableViewDelegate {
         }.bind(to: tableView.rx.items(cellIdentifier: "TableViewCell", cellType: TableViewCell.self)) { (row,item,cell) in
             cell.countryNameLabel.text = item.name.official
         }.disposed(by: disposeBag)
-        Observable.zip(tableView.rx.modelSelected(Country.self), tableView.rx.itemSelected).subscribe(onNext: { (selectedCountry, indexPath) in
-            print("2 selected Country is \(selectedCountry) and indexPath is \(indexPath.row)")
-            self.selectedCountries.append(selectedCountry)
-        }).disposed(by: disposeBag)
+        
+        
+        let selectedItems = tableView.rx.modelSelected(Country.self).subscribe { item in
+            self.selectedCountries.append(item.element!)
+        }
+        let deselectedItems = tableView.rx.modelDeselected(Country.self).subscribe { [self] item in
+            selectedCountries = selectedCountries.filter {$0 != item.element}
+//            selectedCountries.remove(at: selectedCountries.firstIndex(of: item.element!)!)
+            print("deselected: \(item)")
+        }
+//        Observable.zip(tableView.rx.modelSelected(Country.self), tableView.rx.itemSelected).subscribe(onNext: { (selectedCountry, indexPath) in
+//            print("2 selected Country is \(selectedCountry) and indexPath is \(indexPath.row)")
+//            self.selectedCountries.append(selectedCountry)
+//        }).disposed(by: disposeBag)
     }
     
     @objc func dismissModalVC() {
