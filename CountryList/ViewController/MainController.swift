@@ -40,11 +40,15 @@ class MainController: UIViewController, SearchControllerDelegate {
         noDataLabel.textColor = UIColor.black
         noDataLabel.textAlignment = .center
         tableView.separatorStyle = .none
-        if countryList.isEmpty {
-            tableView.backgroundView = noDataLabel
-        } else {
-            tableView.backgroundView = nil
+        
+        DispatchQueue.main.async { [self] in
+            if countryList.isEmpty {
+                tableView.backgroundView = noDataLabel
+            } else {
+                tableView.backgroundView = nil
+            }
         }
+
     }
     
     func setupUI() {

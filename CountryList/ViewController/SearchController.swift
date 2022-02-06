@@ -48,6 +48,7 @@ class SearchController: UIViewController, UITableViewDelegate {
         doneButton.layer.cornerRadius = 20
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         tableView.allowsMultipleSelection = true
+        tableView.keyboardDismissMode = .onDrag
     }
     
     func bindViewModel(){
@@ -85,4 +86,6 @@ extension SearchController: UITextFieldDelegate {
         searchField.resignFirstResponder()
         return true
     }
+    
+
 }
