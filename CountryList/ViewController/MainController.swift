@@ -37,10 +37,8 @@ class MainController: UIViewController, SearchControllerDelegate {
         let noDataLabel : UILabel = UILabel()
         noDataLabel.frame = CGRect(x: 0, y: 0 , width: (self.tableView.bounds.width), height: (self.tableView.bounds.height))
         noDataLabel.text = "No Records Found"
-        noDataLabel.textColor = UIColor.black
+        noDataLabel.textColor = UIColor.systemBlue
         noDataLabel.textAlignment = .center
-        tableView.separatorStyle = .none
-        
         DispatchQueue.main.async { [self] in
             if countryList.isEmpty {
                 tableView.backgroundView = noDataLabel
@@ -48,7 +46,6 @@ class MainController: UIViewController, SearchControllerDelegate {
                 tableView.backgroundView = nil
             }
         }
-
     }
     
     func setupUI() {
@@ -90,6 +87,15 @@ extension MainController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countryList.count
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+
+        self.countryList.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+          setNoDataInfoIfAbsenceNotExists()
+      }
     }
 }
 
