@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSP-D4-8Wp">
-                        <rect key="frame" x="8" y="16" width="304" height="12"/>
+                        <rect key="frame" x="16" y="16" width="296" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -28,7 +28,7 @@
                     <constraint firstItem="MSP-D4-8Wp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="cFj-tv-16V"/>
                     <constraint firstAttribute="bottom" secondItem="MSP-D4-8Wp" secondAttribute="bottom" constant="16" id="cy2-0g-ma5"/>
                     <constraint firstAttribute="trailing" secondItem="MSP-D4-8Wp" secondAttribute="trailing" constant="8" id="oIV-FM-diu"/>
-                    <constraint firstItem="MSP-D4-8Wp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="oOS-bI-OW1"/>
+                    <constraint firstItem="MSP-D4-8Wp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="oOS-bI-OW1"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

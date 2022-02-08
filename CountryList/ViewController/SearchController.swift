@@ -31,7 +31,7 @@ class SearchController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.slideUpViews(delay: 1.0)
         setupUI()
         bindViewModel()
         viewModel.APIRequest()
@@ -52,6 +52,7 @@ class SearchController: UIViewController, UITableViewDelegate {
     }
     
     func bindViewModel(){
+
         viewModel.tableRowsItem.bind(to: rows).disposed(by: disposeBag)
         let searchedText = searchField.rx.text.orEmpty.distinctUntilChanged()
         Observable.combineLatest(rows, searchedText) { [unowned self] (allItems, country) -> [Country] in
@@ -60,19 +61,17 @@ class SearchController: UIViewController, UITableViewDelegate {
             cell.countryNameLabel.text = item.name.official
         }.disposed(by: disposeBag)
         
-        
-        let selectedItems = tableView.rx.modelSelected(Country.self).subscribe { item in
+        tableView.rx.modelSelected(Country.self).subscribe { item in
             self.selectedCountries.append(item.element!)
-        }
-        let deselectedItems = tableView.rx.modelDeselected(Country.self).subscribe { [self] item in
+        }.disposed(by: disposeBag)
+        tableView.rx.modelDeselected(Country.self).subscribe { [self] item in
             selectedCountries = selectedCountries.filter {$0 != item.element}
 //            selectedCountries.remove(at: selectedCountries.firstIndex(of: item.element!)!)
             print("deselected: \(item)")
-        }
-//        Observable.zip(tableView.rx.modelSelected(Country.self), tableView.rx.itemSelected).subscribe(onNext: { (selectedCountry, indexPath) in
-//            print("2 selected Country is \(selectedCountry) and indexPath is \(indexPath.row)")
-//            self.selectedCountries.append(selectedCountry)
-//        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
+        rows.subscribe(onNext: {_ in
+            self.tableView.reloadWithAnimation()
+        }).disposed(by: disposeBag)
     }
     
     @objc func dismissModalVC() {

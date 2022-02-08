@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		486BE5F99B5F5F62BA2DAFD8 /* Pods_CountryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B908BE0BC0E66ED510178E16 /* Pods_CountryList.framework */; };
+		EB23C46127B1242D000E97FA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23C46027B1242D000E97FA /* Extension.swift */; };
 		F7626A7027AEAACA00F445F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7626A6F27AEAACA00F445F6 /* AppDelegate.swift */; };
 		F7626A7227AEAACA00F445F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7626A7127AEAACA00F445F6 /* SceneDelegate.swift */; };
 		F7626A7427AEAACA00F445F6 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7626A7327AEAACA00F445F6 /* MainController.swift */; };
@@ -25,6 +26,7 @@
 		8C6A1F8FC02C4F62DA083F87 /* Pods-CountryList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryList.release.xcconfig"; path = "Target Support Files/Pods-CountryList/Pods-CountryList.release.xcconfig"; sourceTree = "<group>"; };
 		B908BE0BC0E66ED510178E16 /* Pods_CountryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CountryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE7FAE0DC57B61E40D4FDE96 /* Pods-CountryList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryList.debug.xcconfig"; path = "Target Support Files/Pods-CountryList/Pods-CountryList.debug.xcconfig"; sourceTree = "<group>"; };
+		EB23C46027B1242D000E97FA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F7626A6C27AEAACA00F445F6 /* CountryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7626A6F27AEAACA00F445F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7626A7127AEAACA00F445F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EB5EE74427B27F2500AEDC17 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EB23C46027B1242D000E97FA /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		F7626A6327AEAACA00F445F6 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +100,7 @@
 		F7626A6E27AEAACA00F445F6 /* CountryList */ = {
 			isa = PBXGroup;
 			children = (
+				EB5EE74427B27F2500AEDC17 /* Extension */,
 				F7626A9327AEB0A600F445F6 /* Delegate */,
 				F7626A8B27AEAFBA00F445F6 /* ViewController */,
 				F7626A7527AEAACA00F445F6 /* Main.storyboard */,
@@ -255,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7626A8427AEAEEC00F445F6 /* Country.swift in Sources */,
+				EB23C46127B1242D000E97FA /* Extension.swift in Sources */,
 				F7626A8A27AEAFA500F445F6 /* SearchController.swift in Sources */,
 				F7626A8727AEAF1500F445F6 /* SearchViewModel.swift in Sources */,
 				F7626A7427AEAACA00F445F6 /* MainController.swift in Sources */,

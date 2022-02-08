@@ -21,15 +21,14 @@ class MainController: UIViewController, SearchControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        view.slideLeftViews(delay: 0.5, comple: nil)
         setNoDataInfoIfAbsenceNotExists()
-        tableView.reloadData()
+        tableView.reloadWithAnimation()
         print(countryList)
     }
     
@@ -72,7 +71,7 @@ class MainController: UIViewController, SearchControllerDelegate {
             }
         }
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.tableView.reloadWithAnimation()
         }
     }
 }
